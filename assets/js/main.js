@@ -1,6 +1,20 @@
 ;(function($) {
 
+	var $body = $('body');
+
 	$(function() {
+
+		//Show mobile menu
+		$(document).on('click', '.menu-toggle', function(event) {
+			event.preventDefault();
+
+			if ( $body.hasClass('js-nav-show') ) {
+				$body.removeClass('js-nav-show');
+
+			} else {
+				$body.addClass('js-nav-show');
+			}
+		});
 
 		//Slider
 		$('.slider').slick({
@@ -102,7 +116,7 @@
 			var elemId = $(this).attr('href'),
 				top = $(elemId).offset().top;
 
-			$('body').animate({
+			$body.animate({
 				scrollTop: top
 			}, 1200);	
 		});// end click
